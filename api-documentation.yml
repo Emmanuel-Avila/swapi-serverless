@@ -1,0 +1,193 @@
+openapi: 3.0.0
+info:
+  title: Star Wars API Serverless
+  description: API built using Node.js and Serverless Framework, integrated with Star Wars API (SWAPI) and DynamoDB.
+  version: 1.0.0
+  contact:
+    name: Emmanuel Avila
+    email: emmanuelavila635@gmail.com
+servers:
+  - url: http://localhost:3000/dev
+    description: Local development server
+  - url: https://d512oay8u6.execute-api.us-east-1.amazonaws.com/dev
+    description: Production server
+
+paths:
+  /starwars/{id}:
+    get:
+      summary: Get a Star Wars character by ID
+      description: Fetches a Star Wars character from SWAPI based on the provided ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the Star Wars character to fetch.
+      responses:
+        '200':
+          description: Successfully retrieved the character
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nombre:
+                    type: string
+                    example: "Luke Skywalker"
+                  altura:
+                    type: string
+                    example: "172"
+                  masa:
+                    type: string
+                    example: "77"
+                  color_cabello:
+                    type: string
+                    example: "blond"
+                  color_piel:
+                    type: string
+                    example: "fair"
+                  color_ojos:
+                    type: string
+                    example: "blue"
+                  ano_nacimiento:
+                    type: string
+                    example: "19BBY"
+                  genero:
+                    type: string
+                    example: "male"
+                  mundo_natal:
+                    type: string
+                    example: "Tatooine"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Error al integrar con SWAPI"
+
+  /characters:
+    post:
+      summary: Create a new character
+      description: Adds a new character to DynamoDB.
+      requestBody:
+        description: The character data to create
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  example: "Luke Skywalker"
+                altura:
+                  type: string
+                  example: "172"
+                genero:
+                  type: string
+                  example: "masculino"
+                masa:
+                  type: string
+                  example: "170kg"
+                color_cabello:
+                  type: string
+                  example: "rubio"
+                color_piel:
+                  type: string
+                  example: "blanco"
+                color_ojos:
+                  type: string
+                  example: "azules"
+                ano_nacimiento:
+                 type: string
+                 example: "19YD"
+                mundo_nata:
+                 type: string
+                 example: "Tatooine"
+              required:
+                - nombre
+                - altura
+                - genero
+      responses:
+        '201':
+          description: Successfully created character
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Personaje creado correctamente"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Faltan campos requeridos: nombre, altura o genero"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Error al crear personaje"
+    get:
+      summary: Gets all characters
+      description: Retrieves all characters saved on the DynamoDB
+      responses:
+        '200':
+          description: Successfully retrieved the characters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        nombre:
+                          type: string
+                          example: "Luke Skywalker"
+                        altura:
+                          type: string
+                          example: "180m"
+                        genero:
+                          type: string
+                          example: "masculino"
+                        masa:
+                          type: string
+                          example: "75"
+                        color_cabello:
+                         type: string
+                         example: null
+                        color_piel:
+                          type: string
+                          example: "blanco"
+                        color_ojos:
+                          type: string
+                          example: "blue"
+                        mundo_nata:
+                          type: string
+                          example: null
+                        ano_nacimiento:
+                          type: string
+                          example: "19BBY"
+                        
+                        
+      
+      

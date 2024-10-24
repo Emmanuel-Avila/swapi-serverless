@@ -1,0 +1,22 @@
+{
+  "name": "swapi-crud",
+  "version": "1.0.0",
+  "description": "Test for Indra",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1691.0",
+    "axios": "^1.7.7",
+    "serverless-dynamodb": "^0.2.54",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "serverless-offline": "^14.3.3"
+  }
+}
