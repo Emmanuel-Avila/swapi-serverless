@@ -80,3 +80,6 @@ npm test
 
 ## API Documentation
 The documentation OpenAPI 3.0 complaint is in the api-documentation.yml file on the root directory
+
+## Request testing
+Can be checked on the request.rest file on the root directory, it uses the REST client of VisualStudio Code
