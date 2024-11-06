@@ -1,5 +1,5 @@
 const axios = require('axios');
-const dynamoDB = require('./db/dynamoDb');
+const dynamoDB = require('./src/db/dynamoDb');
 const { v4: uuidv4 } = require('uuid');
 
 module.exports.hello = async (event) => {

@@ -2,9 +2,9 @@ POST https://d512oay8u6.execute-api.us-east-1.amazonaws.com/dev/characters
 Content-Type: application/json
 
 {
-  "nombre": "star wars",
-  "altura": "1.80m",
-  "masa": "80kg",
+  "nombre": "gabo",
+  "altura": "1.60m",
+  "masa": "70kg",
   "genero": "hombre"
 }
 
@@ -15,14 +15,14 @@ GET https://d512oay8u6.execute-api.us-east-1.amazonaws.com/dev/starwars/12
 GET https://d512oay8u6.execute-api.us-east-1.amazonaws.com/dev/characters
 
 ### Local Endpoints
-POST http://localhost:3000/devcharacters
+POST http://localhost:3000/dev/characters
 Content-Type: application/json
 
 {
-  "nombre": "Luke",
+  "nombre": "Peter",
   "altura": "1.80m",
   "masa": "80kg",
-  "genero": "mujer"
+  "genero": "flaco"
 }
 ###
 GET http://localhost:3000/dev/characters

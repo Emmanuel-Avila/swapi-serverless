@@ -31,21 +31,21 @@ functions:
           path: /
           method: get
   starWarsIntegration:
-    handler: handler.starWarsIntegration
+    handler: src/modules/starwars/presentation/controller.starWarsController
     events:
       - http:
           path: /starwars/{id}
           method: get
           cors: true
   createCharacter:
-    handler: handler.createCharacter
+    handler: src/modules/internal/presentation/controller.createCharacter
     events:
       - http:
           path: /characters
           method: post
           cors: true
   getCharacters:
-    handler: handler.getCharacters
+    handler: src/modules/internal/presentation/controller.getCharacters
     events:
       - http:
           path: /characters
